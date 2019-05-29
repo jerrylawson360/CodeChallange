@@ -12,8 +12,8 @@ public class RegionImplTest {
     @Test
     public void testWithinRange() {
         final RegionImpl region = new RegionImpl("abc123")
-            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl(11.22))
-            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl(33.44));
+            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl("rate1", 11.22))
+            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl("rate2", 33.44));
 
         Rate rate = region.calculateRate(DateUtils.createDate(2021, 5, 31));
         assertEquals(11.22, rate.getRate(), 0.0);
@@ -44,8 +44,8 @@ public class RegionImplTest {
     @Test
     public void testWithoutRangeNoDefault() {
         final RegionImpl region = new RegionImpl("abc123")
-            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl(11.22))
-            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl(33.44));
+            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl("rate1", 11.22))
+            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl("rate2", 33.44));
 
         try {
             region.calculateRate(DateUtils.createDate(2021, 5, 30));
@@ -69,9 +69,9 @@ public class RegionImplTest {
     @Test
     public void testWithoutRangeWithDefault() {
         final RegionImpl region = new RegionImpl("abc123")
-            .setDefaultRate(() -> 999.888)
-            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl(11.22))
-            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl(33.44));
+            .setDefaultRate(new RateImpl("default", 999.888))
+            .addRate(MonthDay.of(5, 31), MonthDay.of(9, 1), new RateImpl("rate1", 11.22))
+            .addRate(MonthDay.of(12, 1), MonthDay.of(2, 28), new RateImpl("rate2", 33.44));
 
         Rate rate = region.calculateRate(DateUtils.createDate(2021, 5, 30));
         assertEquals(999.888, rate.getRate(), 0.0);

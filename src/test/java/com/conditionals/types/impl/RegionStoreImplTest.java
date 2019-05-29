@@ -24,7 +24,12 @@ public class RegionStoreImplTest {
 
             @Override
             public Rate calculateRate(final Date date) {
-                return () -> 123.456;
+                return new Rate() {
+                    @Override
+                    public String getName() { return "xyz"; }
+                    @Override
+                    public double getRate() { return 123.456; }
+                };
             }
         });
 
@@ -46,7 +51,12 @@ public class RegionStoreImplTest {
 
             @Override
             public Rate calculateRate(final Date date) {
-                return () -> 123.456;
+                return new Rate() {
+                    @Override
+                    public String getName() { return "xyz"; }
+                    @Override
+                    public double getRate() { return 123.456; }
+                };
             }
         });
 
@@ -59,7 +69,12 @@ public class RegionStoreImplTest {
 
             @Override
             public Rate calculateRate(final Date date) {
-                return () -> 456.123;
+                return new Rate() {
+                    @Override
+                    public String getName() { return "xyz"; }
+                    @Override
+                    public double getRate() { return 456.123; }
+                };
             }
         });
 
@@ -81,7 +96,12 @@ public class RegionStoreImplTest {
 
             @Override
             public Rate calculateRate(final Date date) {
-                return () -> 123.456;
+                return new Rate() {
+                    @Override
+                    public String getName() { return "xyz"; }
+                    @Override
+                    public double getRate() { return 123.456; }
+                };
             }
         });
 
@@ -94,7 +114,12 @@ public class RegionStoreImplTest {
 
             @Override
             public Rate calculateRate(final Date date) {
-                return () -> 456.123;
+                return new Rate() {
+                    @Override
+                    public String getName() { return "xyz"; }
+                    @Override
+                    public double getRate() { return 456.123; }
+                };
             }
         });
 

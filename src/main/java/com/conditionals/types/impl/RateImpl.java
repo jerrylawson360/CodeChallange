@@ -3,10 +3,17 @@ package com.conditionals.types.impl;
 import com.conditionals.types.Rate;
 
 public class RateImpl implements Rate {
+    private final String name;
     private final double rate;
 
-    public RateImpl(final double rate) {
+    public RateImpl(final String name, final double rate) {
+        this.name = name;
         this.rate = rate;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override

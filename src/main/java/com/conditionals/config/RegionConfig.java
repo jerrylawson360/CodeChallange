@@ -20,20 +20,4 @@ public class RegionConfig {
                 .map(r -> "\n        " + r.toString())
                 .collect(Collectors.joining());
     }
-
-    public static class RateConfig {
-        public DateConfig from;
-        public DateConfig to;
-        public double rate;
-
-        public double getValue() {
-            return rate;
-        }
-
-        public String toString() {
-            return "  dateRange: " + from.toString() + " -> " + to.toString() + " : " + rate;
-        }
-    }
-
-
 }

@@ -1,10 +1,13 @@
 package com.conditionals.ConditionalsPractice;
 
 import com.conditionals.config.AppInit;
-import com.conditionals.types.Rate;
-import com.conditionals.types.Region;
 import com.conditionals.types.RegionStore;
 import com.conditionals.util.DateUtils;
+
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class App {
     private final RegionStore store;
@@ -14,34 +17,25 @@ public class App {
         store = config.createRegionStore();
     }
 
-    void demo() {
-        final Region northAmerica = store.getRegion("North America");
-        final Region southAmerica = store.getRegion("South America");
+    void runDemo() {
+        final Demo demo = new Demo(this.store);
 
-        final Rate naSummerScenario = northAmerica.calculateRate(DateUtils.createDate(2019, 7, 04));
-        final Rate naWinterScenario = northAmerica.calculateRate(DateUtils.createDate(2019, 12, 04));
-        final Rate naRegularScenario = northAmerica.calculateRate(DateUtils.createDate(2019, 5, 04));
-        final Rate saSummerScenario = southAmerica.calculateRate(DateUtils.createDate(2020, 1, 07));
-        final Rate saWinterScenario = southAmerica.calculateRate(DateUtils.createDate(2019, 8, 17));
-        final Rate saRegularScenario = southAmerica.calculateRate(DateUtils.createDate(2019, 5, 04));
+        final List<Date> dates = IntStream.range(1, 13)
+            .mapToObj(month -> DateUtils.createDate(2019, month, 15))
+            .collect(Collectors.toList());
 
-        System.out.println("\n\n");
-        System.out.println("--North America--");
-        System.out.println("Summer scenario rate is: " + naSummerScenario.getRate());
-        System.out.println("Winter scenario rate is: " + naWinterScenario.getRate());
-        System.out.println("Regular scenario rate is: " + naRegularScenario.getRate());
-        System.out.println("--South America--");
-        System.out.println("Summer scenario rate is: " + saSummerScenario.getRate());
-        System.out.println("Winter scenario rate is: " + saWinterScenario.getRate());
-        System.out.println("Regular scenario rate is: " + saRegularScenario.getRate());
+        demo.printExampleDatesForRegion("North America", dates);
+        demo.printExampleDatesForRegion("South America", dates);
+        demo.printExampleDatesForRegion("Australia", dates);
+        demo.printExampleDatesForRegion("Antartica", dates);
     }
 
     public static void main(String[] args) {
         try {
             final App app = new App();
 
-            app.demo();
-            
+            app.runDemo();
+
         } catch (Exception e) {
             System.exit(1);
         }

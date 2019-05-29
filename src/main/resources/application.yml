@@ -3,22 +3,44 @@ regions:
   - name: "North America"
     defaultRate: 11.11
     rates:
-      -
-        from: 5-31
-        to: 9-1
+      - # Summer rate, June-August
+        name: Summer
+        from: 6-1
+        to: 8-31
         rate: 22.22
-      -
+      - # Winter rate, Dec-Feb
+        name: Winter
         from: 12-1
-        to: 2-28
+        to: 2-29
         rate: 7.77
   - name: "South America"
     defaultRate: 11.11
     rates:
-      -
-        from: 5-31
-        to: 9-1
+      - # Winter rate, June-Aug
+        name: Winter
+        from: 6-1
+        to: 8-31
         rate: 7.77
-      -
+      - # Summer rate, Dec-Feb
+        name: Summer
+        from: 12-1
+        to: 2-29
+        rate: 22.22
+  - name: "Australia"
+    defaultRate: 11.11
+    rates:
+      - # Fall rate, March-May
+        name: Fall
+        from: 3-1
+        to: 5-31
+        rate: 6.66
+      - # Winter rate, June-Aug
+        name: Winter
+        from: 6-1
+        to: 8-31
+        rate: 7.77
+      - # Summer rate, Dec-Feb
+        name: Summer
         from: 12-1
         to: 2-28
         rate: 22.22
