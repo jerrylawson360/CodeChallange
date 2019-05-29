@@ -16,7 +16,7 @@ and for showing how you progressively improve the code (e.g. tagging after each 
 
 ## Getting Started
 
-Running the application: `gradle build test run`
+Running the application: `./gradlew build test run`
 
 All output is written to the console.
 
