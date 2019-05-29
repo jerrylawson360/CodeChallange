@@ -2,6 +2,9 @@ package com.conditionals.types.impl;
 
 import com.conditionals.types.Rate;
 
+/**
+ * Simple implementation of Rate interface, containing the minimal data
+ */
 public class RateImpl implements Rate {
     private final String name;
     private final double rate;

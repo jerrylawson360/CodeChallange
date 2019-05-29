@@ -7,6 +7,9 @@ import com.google.common.collect.Maps;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * Storage of Regions by name
+ */
 public class RegionStoreImpl implements RegionStore {
     private Map<String, Region> regions = Maps.newHashMap();
 

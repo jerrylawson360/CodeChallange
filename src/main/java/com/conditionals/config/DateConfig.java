@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.time.MonthDay;
 
+/**
+ * Configuration class for dates, meant to be used when reading configuration via yaml parser
+ */
 public class DateConfig {
     public MonthDay monthDay;
 

@@ -20,10 +20,9 @@ public class AppInit {
 
         try {
             // Read configuration from resource in jar
-            // TODO: allow for reading from external file.
+            // TODO: allow for reading from external (outside of jar) file.
             final File file = new File(getClass().getClassLoader().getResource("application.yml").getFile());
             config = mapper.readValue(file, AppConfig.class);
-            System.out.println("config="+config);
         } catch (Exception e) {
             System.out.println("Caught exception reading file:" + e.getLocalizedMessage());
             e.printStackTrace();
