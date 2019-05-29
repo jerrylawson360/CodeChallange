@@ -1,6 +1,6 @@
 package com.conditionals.ConditionalsPractice;
 
-import com.conditionals.config.AppConfig;
+import com.conditionals.config.AppInit;
 import com.conditionals.types.Rate;
 import com.conditionals.types.Region;
 import com.conditionals.types.RegionStore;
@@ -9,8 +9,8 @@ import com.conditionals.util.DateUtils;
 public class App {
     private final RegionStore store;
 
-    App() {
-        final AppConfig config = new AppConfig();
+    App() throws Exception {
+        final AppInit config = new AppInit();
         store = config.createRegionStore();
     }
 
@@ -37,8 +37,13 @@ public class App {
     }
 
     public static void main(String[] args) {
-        final App app = new App();
+        try {
+            final App app = new App();
 
-        app.demo();
+            app.demo();
+            
+        } catch (Exception e) {
+            System.exit(1);
+        }
     }
 }

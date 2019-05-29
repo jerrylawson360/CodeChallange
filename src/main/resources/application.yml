@@ -1,0 +1,24 @@
+defaultRate: 123.45
+regions:
+  - name: "North America"
+    defaultRate: 11.11
+    rates:
+      -
+        from: 5-31
+        to: 9-1
+        rate: 22.22
+      -
+        from: 12-1
+        to: 2-28
+        rate: 7.77
+  - name: "South America"
+    defaultRate: 11.11
+    rates:
+      -
+        from: 5-31
+        to: 9-1
+        rate: 7.77
+      -
+        from: 12-1
+        to: 2-28
+        rate: 22.22
