@@ -33,4 +33,14 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'com.conditionals.ConditionalsPractice.App'
+mainClassName = 'com.conditionals.ConditionalsPractice.Demo1'
+
+task(demo1, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.conditionals.ConditionalsPractice.Demo1'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task(demo2, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.conditionals.ConditionalsPractice.Demo2'
+    classpath = sourceSets.main.runtimeClasspath
+}

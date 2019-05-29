@@ -18,6 +18,10 @@ and for showing how you progressively improve the code (e.g. tagging after each 
 
 Running the application: `./gradlew build test run`
 
+Running Demo1: `./gradlew build test demo1`
+
+Running Demo2: `./gradlew build test demo2`
+
 All output is written to the console.
 
 
